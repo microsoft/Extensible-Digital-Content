@@ -1,0 +1,46 @@
+﻿<!--
+    PopUpView.xaml
+
+    Advanced Technology Group (ATG)
+    Copyright (C) Microsoft Corporation. All rights reserved.  
+-->
+<UserControl
+    x:Class="EDCApp.PopUpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    d:DesignHeight="310"
+    d:DesignWidth="360">
+    <Grid
+        Background="Black"
+        MinWidth="330"
+        MinHeight="310">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Width="150" Height="150" Source="DigitalContent/TitleScreen.png" HorizontalAlignment="Center"/>
+        <TextBox x:Name="SongTitle" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,20,0,0" Width="330" Height="35" Text="{Binding CurrentSongTitle}" FontSize="20" HorizontalAlignment="Center"/>
+        <Button Grid.Row="3" Grid.Column="1" Width="70" Height="70" Click="ClickRewind" HorizontalAlignment="Center">
+            <SymbolIcon Symbol="Previous" />
+        </Button>
+        <Button x:Name="PlayButton" Grid.Row="3" Grid.Column="2" Width="70" Height="70" Click="ClickPlay" HorizontalAlignment="Center">
+            <SymbolIcon x:Name="PlayPauseIcon" Symbol="Play" />
+        </Button>
+        <Button Grid.Row="3" Grid.Column="3" Width="70" Height="70" Click="ClickFastForward" HorizontalAlignment="Center">
+            <SymbolIcon Symbol="Next" />
+        </Button>
+    </Grid>
+</UserControl>

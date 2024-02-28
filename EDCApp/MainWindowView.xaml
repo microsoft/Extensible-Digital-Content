@@ -1,0 +1,21 @@
+﻿<!--
+    MainWindowView.xaml
+
+    Advanced Technology Group (ATG)
+    Copyright (C) Microsoft Corporation. All rights reserved.  
+-->
+<Page
+    x:Class="EDCApp.MainWindowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Frame x:Name="ApplicationFrame"/>
+        <Popup x:Name="MediaPopup" IsOpen="False" >
+        </Popup>
+    </Grid>
+</Page>
