@@ -11,6 +11,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The VideoView class is responsible for how the VideoContent is displayed when navigated to. 
+    /// </summary>
     public sealed partial class VideoView : Page
     {
         public VideoView()

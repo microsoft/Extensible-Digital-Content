@@ -9,6 +9,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The TitleScreenView class controls the title screen of the application.
+    /// </summary>
     public sealed partial class TitleScreenView : Page
     {
         public TitleScreenView()

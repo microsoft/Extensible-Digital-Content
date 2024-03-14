@@ -9,6 +9,11 @@ using System.ComponentModel;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The FileNavViewModel class is responsible for managing the current directory that is displayed in the FileNavView.
+    /// The FileNavView.xaml.cs binds this FileNavViewModel into the FileNavView.xaml DataContext.
+    /// This allows the FileNavView to display dynamic content.
+    /// </summary>
     public class FileNavViewModel : INotifyPropertyChanged
     {
         public FileNavViewModel()

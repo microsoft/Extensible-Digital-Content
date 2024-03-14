@@ -9,7 +9,10 @@ using System.ComponentModel;
 
 namespace EDCApp
 {
-    // All Content Views exist within the same instance of this SharedUIViewModel
+    /// <summary>
+    /// The SharedUIViewModel maintains information related to the currently active view.
+    /// All Content Views exist within the same instance of the SharedUIViewModel.
+    /// </summary>
     public class SharedUIViewModel : INotifyPropertyChanged
     {
         private static readonly Lazy<SharedUIViewModel> _instance = new Lazy<SharedUIViewModel>(() => new SharedUIViewModel());

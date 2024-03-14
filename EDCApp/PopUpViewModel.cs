@@ -9,6 +9,12 @@ using System.ComponentModel;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The PopUpViewModel class is responsible for managing the state of the media popup window
+    /// throughout the application. It listens for changes in the audio service and
+    /// updates the popup view accordingly.
+    /// PopUpView.xaml.cs binds this PopUpViewModel into the PopUpView.xaml DataContext.
+    /// </summary>
     public class PopUpViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -44,6 +50,10 @@ namespace EDCApp
 
         private string _currentViewTitle;
 
+        /// <summary>
+        /// The constructor for the PopUpViewModel class assigns the AudioService to a local variable.
+        /// Event handlers are then assigned to the SongChanged and PlayBackStateChanged events.
+        /// </summary>
         public PopUpViewModel()
         {
             _AudioService = AudioService.Instance;

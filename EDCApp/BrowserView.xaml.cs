@@ -11,6 +11,9 @@ using Microsoft.Web.WebView2.Core;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The BrowserView class will attempt to display the content using a browser.
+    /// </summary>
     public sealed partial class BrowserView : Page
     {
         public BrowserView()

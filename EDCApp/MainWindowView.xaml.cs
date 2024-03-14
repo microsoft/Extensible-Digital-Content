@@ -9,6 +9,11 @@ using Windows.UI.Xaml.Controls;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// This is the root window for the application. 
+    /// It contains the main frame that will be used to navigate between different views.
+    /// It also listens for input events to open the media popup window.
+    /// </summary>
     public sealed partial class MainWindowView : Page
     {
         private PopUpView _popUpView;

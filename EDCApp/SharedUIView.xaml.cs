@@ -9,6 +9,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The SharedUIView class controls how the SharedUI is displayed.
+    /// The SharedUIView contains a nav bar and a frame to display the active content.
+    /// </summary>
     public sealed partial class SharedUIView : Page
     {
         public SharedUIView()

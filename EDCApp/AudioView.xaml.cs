@@ -9,6 +9,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The AudioView class is responsible for how the AudioContent is displayed when navigated to. 
+    /// </summary>
     public sealed partial class AudioView : Page
     {
         public AudioView()

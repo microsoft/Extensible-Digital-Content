@@ -11,6 +11,9 @@ using Windows.UI.Core;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The PopUpView class is responsible for how the media popup window is displayed. 
+    /// </summary>
     public sealed partial class PopUpView : UserControl
     {
         private PopUpViewModel _viewModel;

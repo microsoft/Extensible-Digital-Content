@@ -13,7 +13,9 @@ using Windows.UI.Xaml;
 
 namespace EDCApp
 {
-    // This is a singleton service that listens for input from the keyboard and gamepad.
+    /// <summary>
+    /// This is a singleton service that listens for input from the keyboard and gamepad.
+    /// </summary>
     internal class InputService
     {
         private static readonly Lazy<InputService> _instance = new Lazy<InputService>(() => new InputService());

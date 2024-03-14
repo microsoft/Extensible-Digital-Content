@@ -13,6 +13,10 @@ using System.Xml.Linq;
 
 namespace EDCApp
 {
+    /// <summary>
+    /// The DataModel class is responsible for mapping the files in the DigitalContent folder to
+    /// the correct pages in the app.
+    /// </summary>
     public static class DataModel
     {
         public static Dictionary<string, Type> ExtensionMap { get; private set; }
@@ -55,6 +59,9 @@ namespace EDCApp
             MapDirectoryToContent("DigitalContent");
         }
 
+        /// <summary>
+        /// Recursively maps the files and directories in the DigitalContent folder to their corresponding content.
+        /// </summary>
         public static void MapDirectoryToContent(string relativePath)
         {
             var globalPath = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
@@ -65,7 +72,7 @@ namespace EDCApp
             ObservableCollection<Content> contentToAdd = new ObservableCollection<Content>();
             string filePattern = @"[^\\\/]*$";
 
-            // Map content to the current directory.
+            // Map files to content in the current directory.
             foreach (string file in files)
             {
                 string extension = Regex.Match(file, @"\.([A-Za-z0-9]+)$").Value;
@@ -75,7 +82,7 @@ namespace EDCApp
                 contentToAdd.Add(content);
             }
 
-            // Map sub directories(FolderContent) to the current directory.
+            // Map subdirectories into FolderContent.
             foreach (string directory in directories)
             {
                 Match match = Regex.Match(directory, filePattern);
@@ -89,6 +96,9 @@ namespace EDCApp
             ContentDictionary.Add(relativePath, contentToAdd);
         }
 
+        /// <summary>
+        /// Takes a file path, name, and extension to initialize and return content.
+        /// </summary>
         public static Content CreateContent(string path, string name, string extension)
         {
             if (ExtensionMap.ContainsKey(extension))
@@ -114,7 +124,13 @@ namespace EDCApp
         }
     }
 
-    // The Content class determines how a file type/folder is viewed in the application. 
+    /// <summary>
+    /// The content class is the base class for all content types in the app.
+    /// To support a new type of content/file, you can.
+    /// 1. Create a new class that inherits Content.
+    /// 2. Add the file extensions you want to use with your content to the ExtensionMap in the DataModel constructor.
+    /// 3. Set up content initialization in the CreateContent function.
+    /// </summary>
     public abstract class Content
     {
         public string Path { get; protected set; }
