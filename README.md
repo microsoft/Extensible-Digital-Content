@@ -9,7 +9,7 @@
 ## Description
 This sample is a media viewer that enables a user to interact and view media files. Files provided to the sample are handled differently depending on their extension. For example, PDF's and images are displayed in a webview2 where as audio is added to a global playlist that can be played throughout the application. 
 
-### Basic use
+## How to use
 
 Paste all of your media files into the DigitalContent Folder.  Then build the project. 
 
@@ -20,7 +20,7 @@ You can generate a package through VS.
 #### Input Controls
 You can press shift on keyboard or up on the dpad to access a pop up window for the current audio track if there is any.
 
-## Working with the application
+## Working with the application step by step
 There are a few important files/directories that the application uses.
 - **EDCAPP/DigitalContent**
     
@@ -36,10 +36,10 @@ If you want to add your own custom experience for a specific file type, you woul
 2. If the page requires data binding for dynamic content, it would be benificial to also create a viewmodel(.cs file) for your xaml. 
 
 ### Create the content type for your file
-1. Go to DataModel.cs, and add your new content type. It should extend the Content class.
+1. Go to **DataModel.cs**, and add your new content type. It should extend the Content class.
     - The "SourcePageType" passed into the Content constructor is the class of the xaml page. You can find the class definition in the xaml.cs file of the .xaml file that was generated.
-2. Add your ContentType to the CreateContent(...) function.
-3. Add your desired mapping(s) to the Extension map in the Constructor.
+2. Add your desired mapping(s) to the Extension map in the Constructor.
+3. Add your ContentType to the CreateContent(...) function.
 
 
 

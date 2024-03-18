@@ -16,6 +16,11 @@ namespace EDCApp
     /// <summary>
     /// The DataModel class is responsible for mapping the files in the DigitalContent folder to
     /// the correct pages in the app.
+    /// 
+    /// To support a new type of content/file, you can.
+    /// 1. Create a new class that inherits Content.
+    /// 2. Add your desired mapping(s) to the Extension map in the Constructor.
+    /// 3. Set up content initialization in the CreateContent function.
     /// </summary>
     public static class DataModel
     {
@@ -30,7 +35,7 @@ namespace EDCApp
             ContentDictionary = new Dictionary<string, ObservableCollection<Content>>();
             totalAudio = 0;
 
-            // Initialize what type of content is associated with each file extension
+            // 2. Initialize what type of content is associated with each file extension
             ExtensionMap = new Dictionary<string, Type>
             {
                 //Browser
@@ -101,6 +106,7 @@ namespace EDCApp
         /// </summary>
         public static Content CreateContent(string path, string name, string extension)
         {
+            
             if (ExtensionMap.ContainsKey(extension))
             {
                 Type contentType = ExtensionMap[extension];
@@ -119,6 +125,10 @@ namespace EDCApp
                 {
                     return new VideoContent(path, name);
                 }
+                // 3. Add a case for how you want to initialize your content here.
+                // For example, Audio content is added to the AudioService,
+                // so its initialization looks different than browser content.
+
             }
             throw new NotSupportedException($"No content type registered for extension {extension}");
         }
@@ -126,10 +136,6 @@ namespace EDCApp
 
     /// <summary>
     /// The content class is the base class for all content types in the app.
-    /// To support a new type of content/file, you can.
-    /// 1. Create a new class that inherits Content.
-    /// 2. Add the file extensions you want to use with your content to the ExtensionMap in the DataModel constructor.
-    /// 3. Set up content initialization in the CreateContent function.
     /// </summary>
     public abstract class Content
     {
@@ -170,4 +176,7 @@ namespace EDCApp
         public VideoContent(string path, string name) : base(path, name, typeof(VideoView)) { }
     }
 
+    // 1. Add your new content type here
+    // The "SourcePageType" passed into the Content constructor is the class of the xaml page.
+    // You can find the class definition in the xaml.cs file of the .xaml file that was generated.
 }
