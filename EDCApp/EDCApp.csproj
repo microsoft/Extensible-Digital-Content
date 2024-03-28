@@ -132,6 +132,9 @@
     <Compile Include="AudioView.xaml.cs">
       <DependentUpon>AudioView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlsSettingView.xaml.cs">
+      <DependentUpon>ControlsSettingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModel.cs" />
     <Compile Include="FileNavView.xaml.cs">
       <DependentUpon>FileNavView.xaml</DependentUpon>
@@ -145,6 +148,9 @@
       <DependentUpon>PopUpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="PopUpViewModel.cs" />
+    <Compile Include="SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SharedUIView.xaml.cs">
       <DependentUpon>SharedUIView.xaml</DependentUpon>
     </Compile>
@@ -174,6 +180,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ControlsSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FileNavView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PopUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
