@@ -4,6 +4,7 @@
 // Advanced Technology Group (ATG)
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //--------------------------------------------------------------------------------------
+using Microsoft.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -39,12 +40,30 @@ namespace EDCApp
         {
             if (ContentFrame.CanGoBack)
             {
+                // If there are multiple nav menu items, this can be removed.
+                NavView.SelectedItem = null;
+
                 ContentFrame.GoBack();
             }
             else
             {
                 var rootFrame = this.Frame;
                 rootFrame.Navigate(typeof(TitleScreenView));
+            }
+        }
+        private void NavViewItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.IsSettingsInvoked)
+            {
+                if (ContentFrame.CurrentSourcePageType != typeof(SettingsView))
+                    ContentFrame.Navigate(typeof(SettingsView));
+                else
+                {
+                    // If there are multiple nav menu items, this can be removed.
+                    NavView.SelectedItem = null;
+
+                    ContentFrame.GoBack();
+                }
             }
         }
     }

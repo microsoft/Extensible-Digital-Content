@@ -20,15 +20,18 @@
         </Grid.RowDefinitions>
         <muxc:NavigationView x:Name="NavView"
                 PaneDisplayMode="Top"
-                IsSettingsVisible="False"
+                IsSettingsVisible="True"
                 Grid.Row="0"
                 IsBackEnabled="true"
                 BackRequested="NavBackRequested"
-                IsBackButtonVisible="Visible">
+                IsBackButtonVisible="Visible"
+                ItemInvoked="NavViewItemInvoked">
+
             <muxc:NavigationView.PaneHeader>
                 <TextBlock Padding="50,20,0,0" x:Name="NavBarPath" Text="{Binding CurrentViewTitle}"  />
             </muxc:NavigationView.PaneHeader>
             <muxc:NavigationViewItemSeparator/>
+
         </muxc:NavigationView>
         <Frame x:Name="ContentFrame" Padding="0,0,0,0" IsTabStop="True" Grid.Row="1"/>
     </Grid>
