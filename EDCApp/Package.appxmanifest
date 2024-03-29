@@ -18,7 +18,7 @@
   <Properties>
     <DisplayName>ATG Soundtrack App</DisplayName>
     <PublisherDisplayName>Xbox ATG</PublisherDisplayName>
-    <Logo>Assets\StoreLogo56x56.png</Logo>
+    <Logo>Assets\StoreLogo50x50.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -40,7 +40,7 @@
         Description="EDCApp"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150.png" Square71x71Logo="Assets\Small71x71.png" Square310x310Logo="Assets\Large310x310.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen1240x600.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen620x300.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
