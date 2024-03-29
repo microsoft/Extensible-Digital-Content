@@ -32,15 +32,13 @@ namespace EDCApp
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    rootFrame.Navigate(typeof(MainWindowView));
-                }
-
                 Window.Current.Content = rootFrame;
             }
 
-            rootFrame.Navigate(typeof(MainWindowView));
+            if(rootFrame.Content == null)
+            {
+                rootFrame.Navigate(typeof(MainWindowView));
+            }
 
             Window.Current.Activate();
 
