@@ -5,7 +5,7 @@
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
-  IgnorableNamespaces="uap mp uap3 rescap">
+  IgnorableNamespaces="uap mp uap3">
 
   <Identity
     Name="41336MicrosoftATG.ATGSoundtrackApp"
