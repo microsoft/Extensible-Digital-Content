@@ -1,0 +1,37 @@
+﻿<!--
+    SettingsView.xaml
+
+    Advanced Technology Group (ATG)
+    Copyright (C) Microsoft Corporation. All rights reserved.  
+-->
+    <Page
+    x:Class="EDCApp.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EDCApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <SplitView DisplayMode="Inline" IsPaneOpen="True" 
+               PaneBackground="{ThemeResource SystemControlBackgroundBaseLowBrush}"
+               OpenPaneLength="200">
+        <SplitView.Pane>
+            <ListView x:Name="NavigationMenu" SelectionMode="Single" 
+                      SelectedIndex="0" IsTabStop="False" 
+                      SelectionChanged="NavigationMenuSelectionChanged">
+                <ListViewItem Tag="Controls">
+                    <TextBlock Text="CONTROLS"/>
+                </ListViewItem>
+                <ListViewItem Tag="Quit">
+                    <TextBlock Text="QUIT" Foreground="WhiteSmoke"/>
+                </ListViewItem>
+            </ListView>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Frame x:Name="ContentFrame">
+            </Frame>
+        </SplitView.Content>
+    </SplitView>
+</Page>

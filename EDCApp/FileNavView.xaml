@@ -1,0 +1,32 @@
+﻿<!--
+    FileNavView.xaml
+
+    Advanced Technology Group (ATG)
+    Copyright (C) Microsoft Corporation. All rights reserved.  
+-->
+<Page
+    x:Class="EDCApp.FileNavView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:edcapp="using:EDCApp"
+    d:DataContext="{d:DesignInstance Type=edcapp:FileNavViewModel}"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView ItemsSource="{Binding ClickableContents}"
+  ItemClick="OnItemClick"
+  IsItemClickEnabled="True">
+            <ListView.ItemTemplate>
+                <DataTemplate  x:DataType="edcapp:Content">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
