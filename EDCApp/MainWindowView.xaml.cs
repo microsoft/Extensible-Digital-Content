@@ -28,7 +28,8 @@ namespace EDCApp
 
         private void HandleInput(object sender, InputEventArgs e)
         {
-            if ((e.ButtonReading & GamepadButtons.DPadUp) == GamepadButtons.DPadUp || e.Key == Windows.System.VirtualKey.Shift)
+            if ((e.ButtonReadings & GamepadButtons.DPadUp) == GamepadButtons.DPadUp ||
+                e.KeyReadings[(int)Windows.System.VirtualKey.Shift])
             {
                 MediaPopup.IsOpen = !MediaPopup.IsOpen;
             }
