@@ -6,12 +6,35 @@
 
 ![](FileNav.png)
 
+![](VideoScreenShot.png)
+
 ## Description
-This sample is a media viewer that enables a user to interact and view media files. Files provided to the sample are handled differently depending on their extension. For example, PDF's and images are displayed in a webview2 where as audio is added to a global playlist that can be played throughout the application. 
+This UWP sample is a media viewer that enables a user to interact and view media files. Files provided to the sample are handled differently depending on their extension. For example, PDF's and images are displayed in a webview2 where as audio is added to a global playlist that can be played throughout the application. 
+
 
 ## How to use
 
-Paste all of your media files into the DigitalContent Folder.  Then build the project. 
+Paste all of your media files into the DigitalContent Folder. Then build the project. 
+
+The current supported formats are:
+
+**Content displayed through WebView Browser:**
+- `.pdf`
+- `.png`
+- `.jpg`
+
+**Audio Content:**
+- `.wav`
+- `.mp3`
+- `.flac`
+
+**Video Content:**
+- `.webm`
+- `.mkv`
+- `.avi`
+- `.mpg`
+- `.mp4`
+
 
 You can generate a package through VS.
 [Packaging MSIX apps - MSIX | Microsoft Learn](https://learn.microsoft.com/en-us/windows/msix/package/packaging-uwp-apps#generate-an-app-package)
@@ -29,7 +52,7 @@ There are a few important files/directories that the application uses.
     
     This is the splash screen that is displayed when the app is  initially loaded.
 
-If you want to add your own custom experience for a specific file type, you would.
+If you want to add your own custom experience for a **specific file type**, you would.
 
 ### Create your page to view the custom content
 1. Go to the solution explorer and ADD a blank page, this generates a UWP .xaml page and a .xaml.cs code-behind.
