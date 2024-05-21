@@ -35,13 +35,9 @@ namespace EDCApp
 
         private readonly DispatcherTimer _inputPollingTimer;
 
-        // This will eventually be replaced with a proper keyboard input manager.
-        // Right now, its just a placeholder bound to the shift key.
-        private CoreVirtualKeyStates _previousShiftKeyState;
+        private CoreVirtualKeyStates[] _previousKeyStates;
 
-        // This will eventually be replaced with a proper controller input manager.
-        // Right now, its just a placeholder bound to the up dpad on cotroller.
-        private GamepadReading _previousGamepadReading;
+        private GamepadButtons _previousGamepadButtons;
 
         private Gamepad _defaultGamepad;
 
@@ -54,6 +50,9 @@ namespace EDCApp
             _inputPollingTimer.Tick += PollInput;
             _inputPollingTimer.Start();
 
+            // 256 is the maximum number of virtual keys
+            _previousKeyStates = new CoreVirtualKeyStates[256];
+
             Gamepad.GamepadAdded += GamepadGamepadAdded;
             Gamepad.GamepadRemoved += GamepadGamepadRemoved;
 
@@ -64,36 +63,52 @@ namespace EDCApp
             }
         }
 
-        private void PollInput(object sender, object e)
+        public void PollInput(object sender, object e)
         {
-            var coreWindow = CoreWindow.GetForCurrentThread();
-            var shiftKeyReading = coreWindow.GetKeyState(VirtualKey.Shift);
+            var coreWindow = CoreWindow.GetForCurrentThread(); 
+            var keyPressedAndReleased = new bool[256];
 
-            InputEventArgs inputEventArgs = new InputEventArgs();
-
-            if ((_previousShiftKeyState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down &&
-                (shiftKeyReading & CoreVirtualKeyStates.Down) != CoreVirtualKeyStates.Down)
+            // Add all keys that were pressed and released to the input event args
+            foreach (VirtualKey key in Enum.GetValues(typeof(VirtualKey)))
             {
-                inputEventArgs.Key = VirtualKey.Shift;
-            }
-            _previousShiftKeyState = shiftKeyReading;
+                var keyState = coreWindow.GetKeyState(key);
+                int keyIndex = (int)key;
 
-            if (DefaultGamepad != null)
-            {
-                var gamePadReading = DefaultGamepad.GetCurrentReading();
-
-                if ((_previousGamepadReading.Buttons & GamepadButtons.DPadUp) == GamepadButtons.DPadUp &&
-                    (gamePadReading.Buttons & GamepadButtons.DPadUp) != GamepadButtons.DPadUp)
+                if ((_previousKeyStates[keyIndex] & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down &&
+                    (keyState & CoreVirtualKeyStates.Down) != CoreVirtualKeyStates.Down)
                 {
-                    inputEventArgs.ButtonReading = GamepadButtons.DPadUp;
+                    // Mark the key as pressed and released
+                    keyPressedAndReleased[keyIndex] = true;
                 }
-                _previousGamepadReading = gamePadReading;
+                else
+                {
+                    // Mark the key as not pressed
+                    keyPressedAndReleased[keyIndex] = false;
+                }
+                _previousKeyStates[keyIndex] = keyState;
             }
 
-            if(inputEventArgs.Key != 0 || inputEventArgs.ButtonReading != 0)
+            // Add all Gamepad buttons that were pressed and released to the input event args
+            uint buttonsPressedAndReleased = 0;
+            if (Gamepad.Gamepads.Count > 0) 
             {
-                OnInputUpdated(inputEventArgs);
+                var gamePadReading = Gamepad.Gamepads[0].GetCurrentReading();
+                uint currentGamepadButtons = (uint)gamePadReading.Buttons;
+
+                // Get the buttons that were pressed and released with a bitwise operation
+                buttonsPressedAndReleased = (uint)_previousGamepadButtons & ~currentGamepadButtons;
+
+                _previousGamepadButtons = gamePadReading.Buttons;
             }
+
+            var inputEventArgs = new InputEventArgs
+            {
+                KeyReadings = keyPressedAndReleased,
+                ButtonReadings = (GamepadButtons)buttonsPressedAndReleased
+            };
+
+            // Raise the event, which ends up calling the HandleInput method in the MainWindowView
+            InputUpdated?.Invoke(this, inputEventArgs);
         }
 
         protected virtual void OnInputUpdated(InputEventArgs e)
@@ -128,9 +143,16 @@ namespace EDCApp
         }
     }
 
+    // <summary> 
+    // This class is used to pass input data to the event handler.
+    // Only inputs that are pressed and released are passed.
+    // Keyreadings: Index into the array with the appropriate typecasted virtualkey.
+    // ButtonReadings is a bitfield. Bitwise & with the appropriate
+    // GamepadButtons enum.
+    // </summary>
     public class InputEventArgs : EventArgs
     {
-        public GamepadButtons ButtonReading { get; set; }
-        public Windows.System.VirtualKey Key { get; set; }
+        public bool[] KeyReadings { get; set; }
+        public GamepadButtons ButtonReadings { get; set; }
     }
 }
