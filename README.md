@@ -75,6 +75,10 @@ The TitleScreenView displays the landing page of the application once its loaded
 
 ### Content Views:
 
+#### SettingsView
+
+Displays a list of settings. It is accessed through the settings icon on the nav bar
+
 #### FileNavView
 
 Displays a list of clickable Content items. This view is displayed when a **directory content** is clicked
