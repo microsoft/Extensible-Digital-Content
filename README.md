@@ -1,4 +1,4 @@
-# Extensible Digital Content Sample
+# Extensible Digital Content Template
 
 
 
@@ -9,7 +9,9 @@
 ![](VideoScreenShot.png)
 
 ## Description
-This UWP sample is a media viewer that enables a user to interact and view media files. Files provided to the sample are handled differently depending on their extension. For example, PDF's and images are displayed in a webview2 where as audio is added to a global playlist that can be played throughout the application. 
+This code template is a media viewer that enables a user to interact and view media files. Files provided to the template are handled differently depending on their extension. For example, PDF's and images are displayed in a webview2 where as audio is added to a global playlist that can be played throughout the application. 
+
+This code template is a UWP application as apps are all UWP.
 
 
 ## How to use
@@ -41,7 +43,7 @@ You can generate a package through VS.
 
 
 #### Input Controls
-You can press shift on keyboard or up on the dpad to access a pop up window for the current audio track if there is any.
+You can press shift on keyboard or up on the dpad to access a pop up window for the current audio track if there is any active. For navigation, use the Xbox thumbstick or standard mouse controls.
 
 ## Working with the application step by step
 There are a few important files/directories that the application uses.
