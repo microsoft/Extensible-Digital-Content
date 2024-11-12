@@ -1,6 +1,5 @@
 ﻿<!--
     TitleScreenView.xaml
-
     Advanced Technology Group (ATG)
     Copyright (C) Microsoft Corporation. All rights reserved.  
 -->
@@ -16,7 +15,7 @@
         <Image x:Name="Splash" Source="DigitalContent/TitleScreen.png" Stretch="UniformToFill"/>
         <Button x:Name="StartButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,50" Click="OnStartClick" Background="DarkGray">
             <Button.Content>
-                <TextBlock x:Name="StartButtonTextBlock"/>
+                <TextBlock x:Uid="TitleScreenView_StartButtonTextBlock"/>
             </Button.Content>
         </Button>
     </Grid>

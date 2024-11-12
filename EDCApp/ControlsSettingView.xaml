@@ -17,11 +17,11 @@
     <Grid Margin="20">
         <StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="70">
-                <TextBlock Text="Audio PopUp Window"
+                <TextBlock x:Uid="SettingsControlsView_AudioPopUp"
                HorizontalAlignment="Left"
                VerticalAlignment="Center"
                Style="{ThemeResource BaseTextBlockStyle}" />
-                <TextBlock Text="Shift, Up DPAD"
+                <TextBlock x:Uid="SettingsControlsView_AudioPopUpControls"
                HorizontalAlignment="Left"
                VerticalAlignment="Center"/>
             </StackPanel>
