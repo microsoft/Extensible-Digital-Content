@@ -131,3 +131,8 @@ The InputService is responsible for handling user input in the application. It u
 
 The AudioService is responsible for managing audio playback in the application. It uses a MediaPlayer to play audio. It allows audio playback in the background.
 
+# Localization
+The app automatically uses the OS's active language settings. Note that changing the system language may require a sign-out or restart for the new language to take effect.
+Currently, only English has a resource file, as this code serves as a template. To add another language, such as Japanese (ja-JP), simply create a ja-JP folder inside the Strings directory and add a corresponding .resw resource file with the appropriate translations. The app should recognize the new language automatically.
+You can find language codes here. 
+https://learn.microsoft.com/en-us/gaming/gdk/_content/gc/system/overviews/localization/console_supported_languages
