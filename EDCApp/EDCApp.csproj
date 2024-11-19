@@ -251,12 +251,17 @@
     <Content Include="Assets\Wide310x150.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <PRIResource Include="Strings\ja-JP\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DigitalContent\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -22,10 +22,10 @@
                       SelectedIndex="0" IsTabStop="False" 
                       SelectionChanged="NavigationMenuSelectionChanged">
                 <ListViewItem Tag="Controls">
-                    <TextBlock Text="CONTROLS"/>
+                    <TextBlock x:Uid="SettingsView_ControlsTextBlock"/>
                 </ListViewItem>
                 <ListViewItem Tag="Quit">
-                    <TextBlock Text="QUIT" Foreground="WhiteSmoke"/>
+                    <TextBlock x:Uid="SettingsView_QuitTextBlock" Foreground="WhiteSmoke"/>
                 </ListViewItem>
             </ListView>
         </SplitView.Pane>

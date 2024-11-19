@@ -18,8 +18,6 @@ namespace EDCApp
         {
             this.InitializeComponent();
             this.DataContext = this;
-            StartButtonTextBlock.FontSize = 30;
-            StartButtonTextBlock.Text = "Explore";
         }
 
         private void OnStartClick(object sender, RoutedEventArgs e)
